@@ -40,7 +40,7 @@ function handleChat(io, socket) {
 
         io.to(targetRoom).emit(
             'system_message',
-            `${nickname} joined the room, say hi!"
+            `${nickname} joined the room, say hi!'
         );
 
         io.to(targetRoom).emit(
