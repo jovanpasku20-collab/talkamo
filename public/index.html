@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,32 +8,88 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <!-- Landing View -->
     <div id="landing">
         <h1>Welcome to talkamo!</h1>
-        <p>talk with random people through chat. no camera, no mic, no trouble.</p>
-        
+
+        <p>
+            talk with random people through chat.
+            no camera, no mic, no trouble.
+        </p>
+
         <div class="setup-form">
-            <input type="text" id="nickname-input" placeholder="Enter nickname..." maxlength="15" autocomplete="off">
-            <input type="text" id="room-input" placeholder="Room name (e.g. general)..." maxlength="20" autocomplete="off">
+            <input
+                type="text"
+                id="nickname-input"
+                placeholder="Enter nickname..."
+                maxlength="15"
+                autocomplete="off"
+            >
+
+            <input
+                type="text"
+                id="room-input"
+                placeholder="Room name (e.g. general)..."
+                maxlength="20"
+                autocomplete="off"
+            >
+
             <button id="go-btn">Go!</button>
+
+            <div class="ai-section">
+                <strong>Want to talk with ChatGPT?</strong>
+                <p>Join room <b>#test</b> to talk with the AI.</p>
+                <p class="disclaimer">
+                    ChatGPT may take a little while to respond.
+                </p>
+
+                <button id="ai-btn">
+                    Join ChatGPT
+                </button>
+            </div>
         </div>
     </div>
 
     <!-- Active Chatroom View -->
     <div id="chat-room" class="hidden">
+
         <div id="chat-header">
             <span id="room-title">Room: #general</span>
-            <span>(<span id="user-count">0</span>/5 online)</span>
+
+            <span>
+                <span id="user-count">0</span>/5 online
+            </span>
         </div>
+
+        <div id="connection-status">
+            ● Connected
+        </div>
+
         <div id="chatbox"></div>
+
+        <div id="typing-area"></div>
+
         <div id="input-area">
-            <input type="text" id="msg-input" placeholder="Type a message..." autocomplete="off">
+            <input
+                type="text"
+                id="msg-input"
+                placeholder="Type a message..."
+                autocomplete="off"
+            >
+
             <button id="send-btn">Send</button>
         </div>
+
+        <button id="leave-btn">
+            Leave room
+        </button>
+
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/client.js"></script>
+
 </body>
 </html>
+```
