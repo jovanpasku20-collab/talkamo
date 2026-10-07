@@ -38,6 +38,7 @@ goBtn.addEventListener('click', () => {
         const div = document.createElement('div');
         div.className = 'sys-msg';
         div.textContent = `[System]: ${msg}`;
+
         chatbox.appendChild(div);
         chatbox.scrollTop = chatbox.scrollHeight;
     });
@@ -55,6 +56,20 @@ goBtn.addEventListener('click', () => {
 
         chatbox.appendChild(div);
         chatbox.scrollTop = chatbox.scrollHeight;
+    });
+
+    socket.on('typing', (data) => {
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        if (!typingIndicator) {
+            return;
+        }
+
+        if (data.isTyping) {
+            typingIndicator.textContent = `${data.username} is typing...`;
+        } else {
+            typingIndicator.textContent = '';
+        }
     });
 
     socket.on('room_full', (msg) => {
