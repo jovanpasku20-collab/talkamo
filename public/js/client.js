@@ -1,3 +1,4 @@
+```js
 const goBtn = document.getElementById('go-btn');
 const nicknameInput = document.getElementById('nickname-input');
 const roomInput = document.getElementById('room-input');
@@ -24,7 +25,10 @@ goBtn.addEventListener('click', () => {
 
     socket = io();
 
-    socket.emit('join_room', { nickname, roomName });
+    socket.emit('join_room', {
+        nickname,
+        roomName
+    });
 
     socket.on('connect_success', (data) => {
         landing.classList.add('hidden');
@@ -40,6 +44,7 @@ goBtn.addEventListener('click', () => {
         const div = document.createElement('div');
         div.className = 'sys-msg';
         div.textContent = `[System]: ${msg}`;
+
         chatbox.appendChild(div);
         chatbox.scrollTop = chatbox.scrollHeight;
     });
@@ -51,7 +56,9 @@ goBtn.addEventListener('click', () => {
         strong.textContent = data.sender;
 
         div.appendChild(strong);
-        div.appendChild(document.createTextNode(`: ${data.text}`));
+        div.appendChild(
+            document.createTextNode(`: ${data.text}`)
+        );
 
         chatbox.appendChild(div);
         chatbox.scrollTop = chatbox.scrollHeight;
