@@ -1,4 +1,3 @@
-```js
 const goBtn = document.getElementById('go-btn');
 const nicknameInput = document.getElementById('nickname-input');
 const roomInput = document.getElementById('room-input');
