@@ -90,14 +90,25 @@ function sendMessage() {
         return;
     }
 
+    socket.emit('typing', false);
     socket.emit('send_chat', text);
+
     msgInput.value = '';
 }
 
 sendBtn.addEventListener('click', sendMessage);
+
+msgInput.addEventListener('input', () => {
+    if (!socket) {
+        return;
+    }
+
+    socket.emit('typing', msgInput.value.length > 0);
+});
 
 msgInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         sendMessage();
     }
 });
+```
