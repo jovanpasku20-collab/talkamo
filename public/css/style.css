@@ -1,4 +1,3 @@
-```css
 body {
     background-color: #1a1a1a;
     color: #00ff66;
@@ -6,17 +5,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
 }
 
-#landing,
-#chat-room {
+#landing, #chat-room {
     background: #000;
     border: 2px solid #00ff66;
     padding: 20px;
     width: 420px;
-    max-width: calc(100vw - 40px);
     box-shadow: 5px 5px 0px #005522;
     text-align: center;
 }
@@ -39,11 +36,6 @@ input[type="text"] {
     padding: 8px;
     font-family: inherit;
     outline: none;
-    box-sizing: border-box;
-}
-
-input[type="text"]::placeholder {
-    color: #007733;
 }
 
 button {
@@ -60,26 +52,6 @@ button:hover {
     background: #00cc55;
 }
 
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.ai-section {
-    border-top: 1px dashed #005522;
-    margin-top: 10px;
-    padding-top: 15px;
-}
-
-.ai-section p {
-    margin: 6px 0;
-}
-
-.disclaimer {
-    color: #888;
-    font-size: 12px;
-}
-
 #chat-header {
     display: flex;
     justify-content: space-between;
@@ -88,52 +60,14 @@ button:disabled {
     font-weight: bold;
 }
 
-#connection-status {
-    text-align: left;
-    font-size: 12px;
-    margin-top: 6px;
-}
-
-.connected {
-    color: #00ff66;
-}
-
-.disconnected {
-    color: #ff4444;
-}
-
 #chatbox {
     height: 250px;
     border: 1px solid #00ff66;
     overflow-y: auto;
     text-align: left;
     padding: 10px;
-    margin: 15px 0 5px;
+    margin: 15px 0;
     background: #050505;
-    box-sizing: border-box;
-}
-
-.chat-message {
-    margin: 4px 0;
-    overflow-wrap: anywhere;
-}
-
-.sys-msg {
-    color: #888888;
-    font-style: italic;
-    margin: 4px 0;
-}
-
-#typing-area {
-    height: 20px;
-    text-align: left;
-}
-
-.typing-indicator {
-    color: #00ff66;
-    opacity: 0.7;
-    font-style: italic;
-    font-size: 13px;
 }
 
 #input-area {
@@ -143,19 +77,53 @@ button:disabled {
 
 #msg-input {
     flex: 1;
-    min-width: 0;
+}
+
+.sys-msg {
+    color: #888888;
+    font-style: italic;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    color: #00ff66;
+    opacity: 0.7;
+    font-style: italic;
+
+.disclaimer {
+    color: #888888;
+    font-size: 12px;
+}
+
+#connection-status {
+    font-size: 12px;
+    text-align: left;
+    margin-top: 5px;
+}
+
+#typing-area {
+    height: 18px;
+    text-align: left;
+}
+
+.typing-indicator {
+    color: #00ff66;
+    opacity: 0.7;
+    font-style: italic;
+    font-size: 12px;
 }
 
 #leave-btn {
     margin-top: 10px;
-    background: #111;
+    background: #000;
     color: #00ff66;
     border: 1px solid #00ff66;
-    width: 100%;
+    padding: 6px 12px;
 }
 
 #leave-btn:hover {
     background: #00ff66;
     color: #000;
 }
-```
+    margin: 4px 0;
+}
