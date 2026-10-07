@@ -24,11 +24,6 @@ goBtn.addEventListener('click', () => {
 
     socket = io();
 
-    socket.emit('join_room', {
-        nickname,
-        roomName
-    });
-
     socket.on('connect_success', (data) => {
         landing.classList.add('hidden');
         chatRoom.classList.remove('hidden');
@@ -43,7 +38,6 @@ goBtn.addEventListener('click', () => {
         const div = document.createElement('div');
         div.className = 'sys-msg';
         div.textContent = `[System]: ${msg}`;
-
         chatbox.appendChild(div);
         chatbox.scrollTop = chatbox.scrollHeight;
     });
@@ -67,22 +61,28 @@ goBtn.addEventListener('click', () => {
         alert(msg);
         socket.disconnect();
     });
+
+    socket.emit('join_room', {
+        nickname,
+        roomName
+    });
 });
 
 function sendMessage() {
     const text = msgInput.value.trim();
 
-    if (text && socket) {
-        socket.emit('send_chat', text);
-        msgInput.value = '';
+    if (!text || !socket) {
+        return;
     }
+
+    socket.emit('send_chat', text);
+    msgInput.value = '';
 }
 
 sendBtn.addEventListener('click', sendMessage);
 
-msgInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
+msgInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
         sendMessage();
     }
 });
-```
